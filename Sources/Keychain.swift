@@ -208,6 +208,7 @@ private func deleteKeychainItem(forPersistentRef persistentRef: Data) throws {
 private func keychainItem(forPersistentRef persistentRef: Data) throws -> NSDictionary? {
     let queryDict: [String: AnyObject] = [
         kSecClass as String:                kSecClassGenericPassword,
+        kSecAttrService as String:          kOTPService as NSString,
         kSecValuePersistentRef as String:   persistentRef as NSData,
         kSecReturnPersistentRef as String:  kCFBooleanTrue,
         kSecReturnAttributes as String:     kCFBooleanTrue,
